@@ -12,31 +12,18 @@ try:
 except ImportError:
     from distutils.core import setup
 
-version = open('VERSION').read().replace('\n', '')
+version = "1.0"
 readme = open('README.rst').read()
 
 
-if sys.argv[-1] == 'publish':
-    os.system('python setup.py sdist')
-    print("You probably want to also tag the version now:")
-    print("  git tag -a %s -m 'version %s'" % (version, version))
-    print("  git push --tags")
-    sys.exit()
-else:
-    if os.path.exists(os.path.join(os.path.dirname(__file__), '.git')):
-        cmd = 'git rev-parse --verify --short HEAD'.split(' ')
-        git_hash = subprocess.check_output(cmd).decode().replace('\n', '')
-        version = "%s+git.%s" % (version, git_hash)
-
-
 setup(
-    name='django-cruds-adminlte',
+    name='cruds_dj_adminlte2',
     version=version,
-    description="""django-cruds-adminlte is simple drop-in django app that creates CRUD for faster prototyping.""",  # noqa
+    description="""cruds_dj_adminlte2 is simple drop-in django app that creates CRUD for faster prototyping.""",  # noqa
     long_description=readme,
-    author='Óscar M. Lage',
-    author_email='info@oscarmlage.com',
-    url='https://github.com/oscarmlage/django-cruds-adminlte',
+    author='Tralah M. Brian',
+    author_email='briantralah@gmail.com',
+    url='https://github.com/TralahM/cruds_dj_adminlte2',
     packages=[
         'cruds_adminlte',
         'cruds_adminlte.templatetags',
